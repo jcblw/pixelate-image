@@ -1,0 +1,33 @@
+{
+  "name": "top-nine",
+  "version": "1.0.0",
+  "description": "A instagram application that builds an image ",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node -r dotenv/config src/server.js",
+    "dev": "nodemon -r dotenv/config src/server.js"
+  },
+  "bin": {
+    "pixelate-image": "./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/jcblw/top-nine"
+  },
+  "author": "Jacob Lowe",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^0.1.21",
+    "canvas": "^2.1.0",
+    "date-fns": "^1.29.0",
+    "dotenv": "^6.1.0",
+    "drawable": "^0.3.0",
+    "face-api.js": "^0.16.1",
+    "got": "^9.3.1",
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5"
+  }
+}

@@ -91,11 +91,7 @@ const pixelateImage = async (photo, size = 1080, pixelSize = 60) => {
 
   context.putImageData(imageData, 0, 0);
   // console.log("Image pixelated");
-  return drawable.toBuffer("image/jpeg", {
-    quality: 0.75,
-    progressive: false,
-    chromaSubsampling: true
-  });
+  return { buffer: drawable.toBuffer(), context };
 };
 
 module.exports = { pixelateImage };

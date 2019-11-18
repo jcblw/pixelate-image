@@ -31,7 +31,13 @@ const createArrayN = n => Array.from(new Array(n)).fill(0);
     process.cwd(),
     outFile || `${file.split(".").shift()}_${size}-${pixelSize}.gif `
   );
-  gif.createReadStream().pipe(fs.createWriteStream(outGIFPath));
+  const gifStream = gif.createReadStream();
+  const writeStream = fs.createWriteStream(outGIFPath);
+
+  gifStream.pipe(writeStream);
+  gifStream.on("finish", () => {
+    console.log("finish");
+  });
   const image = await iterator.reduce(promise => {
     return promise.then(({ buffer, context }) => {
       if (context) {
